@@ -1,23 +1,41 @@
 package br.com.bruno.diceroller
 
+import android.graphics.Color
+import android.opengl.GLES30
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import br.com.bruno.diceroller.databinding.ActivityMainBinding
+import com.mikhaellopez.circularprogressbar.CircularProgressBar
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val progressBar : CircularProgressBar = findViewById(R.id.circularProgressBar)
         val button : Button = findViewById(R.id.btnRollDice)
         button.setOnClickListener {
-            rollDice()
+            progressBar.progress = 0f
+            animationBarProgress(progressBar)
         }
+
+    }
+
+    private fun animationBarProgress(progressBar : CircularProgressBar){
+        progressBar.apply {
+            setProgressWithAnimation(10f, 250)
+        }
+        rollDice()
     }
 
     private fun rollDice() {
@@ -32,5 +50,4 @@ class MainActivity : AppCompatActivity() {
         }
         diceNumber.setImageResource(drawableResource)
     }
-
 }

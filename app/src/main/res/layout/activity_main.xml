@@ -6,11 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/circularProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cpb_background_progressbar_color="@color/white"
+        app:cpb_background_progressbar_width="10dp"
+        app:cpb_progress_direction="to_right"
+        app:cpb_progressbar_color="@color/GreenLight"
+        app:cpb_progressbar_width="10dp"
+        app:cpb_progress_max="10"
+        app:cpb_progress="0"
+        app:cpb_round_border="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <ImageView
         android:id="@+id/image_dice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/empty_dice"
+        android:src="@drawable/dice_1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/rolar_o_dado"
-        app:layout_constraintTop_toBottomOf="@id/image_dice"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/circularProgressBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
