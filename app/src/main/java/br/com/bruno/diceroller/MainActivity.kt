@@ -1,5 +1,6 @@
 package br.com.bruno.diceroller
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.opengl.GLES30
 import androidx.appcompat.app.AppCompatActivity
@@ -24,12 +25,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnRollDice.setOnClickListener {
-            binding.circularProgressBar.progress = 0f
             animationBarProgress()
         }
     }
 
     private fun animationBarProgress(){
+        binding.circularProgressBar.progress = 0f
         binding.circularProgressBar.apply {
             setProgressWithAnimation(10f, 250)
         }
